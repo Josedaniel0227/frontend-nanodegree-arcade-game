@@ -2,16 +2,7 @@
 
 ## Classic Frogger
 
-## Table of Contents
-
-* [Project Overview](project Overview)
-* [Instructions](#instructions)
-* [How to play](how to play)
-* [Resources](#resources)
-* [Contributing](#contributing)
-* [Contact](Contact)
-
-## Project Overview
+### Project Overview
 This project is part of the Grow With Google FEND Program From Udacity. The goal is to recreate the classic arcade game  "Frogger" using HTML5 Canvas, CSS, and JavaScript.
 
 ## Instructions
