@@ -55,7 +55,7 @@ let Player = function() {
 //Starts and pause the clock if player  moves or returns to initial position
 
 Player.prototype.update = function() {
-  if ((player.x != 101 * 2) || (player.y != 83 * 5 - 10)){
+  if ((this.x != 101 * 2) || (this.y != 83 * 5 - 10)){
     startTimer();
   }
   // Check here if Player win
