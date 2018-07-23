@@ -22,7 +22,8 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
+        stopFrame;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -54,16 +55,49 @@ var Engine = (function(global) {
 
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
+         * the function is used to stop the game as soon as the player reaches the water.
          */
-        win.requestAnimationFrame(main);
-    }
+
+         if  (player.finish === true){
+           win.cancelAnimationFrame(stopFrame);
+           // Modal for when the player wins
+           swal( {
+             title: "Good Job!",
+             text : "You Finished in " + seconds +":" + tens + " Wanna Play Again?" ,
+             icon : "success",
+             closeOnClickOutside: false,
+             button: {
+               cancel: false,
+               confirm: true,
+               text: " Reset",
+               closeModal: true,
+             },
+           })
+           // After the Modal is close, the player retuns to initial position and the clock is reset
+           .then(function (){
+             swal.close();
+             player.x = 101 * 2;
+             player.y = 83 * 5 - 10;
+             player.finish = false;
+             tens = "00";
+             seconds = "00";
+             appendTens.innerHTML = tens;
+             appendSeconds.innerHTML = seconds;
+             win.requestAnimationFrame(main);
+           });
+         }
+         else {
+           // keeps the frames runinng until the player wins
+           stopFrame = win.requestAnimationFrame(main);
+         }
+       }
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
      * game loop.
      */
     function init() {
-        reset();
+        // reset();
         lastTime = Date.now();
         main();
     }
@@ -72,22 +106,19 @@ var Engine = (function(global) {
      * of the functions which may need to update entity's data. Based on how
      * you implement your collision detection (when two entities occupy the
      * same space, for instance when your character should die), you may find
-     * the need to add an additional function call here. For now, we've left
-     * it commented out - you may or may not want to implement this
-     * functionality this way (you could just implement collision detection
-     * on the entities themselves within your app.js file).
+     *
      */
      function checkCollisions(){
-       // return (Math.abs(this.y - player.y) === 10) && (Math.abs(this.x - player.x) < 75);
-       // console.log("collision")
-
      };
-    function update(dt) {
-        updateEntities(dt);
-        checkCollisions();
-    }
+     function update(dt) {
+       updateEntities(dt);
+       checkCollisions();
+       // Clock could star here but for now is better that the clock starts when the player moves and stops when the player returns to initial position
+       // startTimer();
 
-    /* This is called by the update function and loops through all of the
+     }
+
+     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
      * player object. These update methods should focus purely on updating
@@ -166,7 +197,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+
     }
 
     /* Go ahead and load all of the images we know we're going to need to

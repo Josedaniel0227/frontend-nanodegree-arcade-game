@@ -1,3 +1,18 @@
 body {
     text-align: center;
 }
+
+h1{
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  color: #024b47;
+  font-weight: bold;
+}
+
+.clock {
+    cursor: none;
+    color: #024b47;
+    font-weight: bold;
+}
+.swal-overlay {
+  background-color: rgba(210, 165, 149, 0.45);
+}

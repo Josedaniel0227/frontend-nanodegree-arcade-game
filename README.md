@@ -1,6 +1,26 @@
-frontend-nanodegree-arcade-game
+# frontend-nanodegree-arcade-game
 ===============================
+## Classic Frogger
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+### Project Overview
+This project is part of the Grow With Google FEND Program From Udacity. The goal is to recreate the classic arcade game  "Frogger" using HTML5 Canvas, CSS, and JavaScript.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Instructions
+ You control the player and must cross to the other side without colliding with the bugs. Any collision with an enemy will bring the player to the initial position. You control the player using the left, right, up and down arrow keys on your keyboard.
+
+## How to play
+You can clone this repo and run it using your local machine. You can also play online by visiting the following [link] (https://josedaniel0227.github.io/frontend-nanodegree-arcade-game/)
+
+##Resources
+
+## Win Modal
+
+https://sweetalert2.github.io/
+
+## Contributing
+
+This repository is a project for Udacity students. Therefore, I most likely will not accept pull requests.
+
+## Contact
+
+* [Email] (josedaniel0227@hotmail.com)
